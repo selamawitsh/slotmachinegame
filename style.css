@@ -1,0 +1,105 @@
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #222;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    margin: 1em auto;
+    padding: 0.3em;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.balance-container .bet-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Inputs and Buttons */
+input {
+    width: 8em;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 1em;
+    margin: 1em;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff9900;
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+/* Slot Machine Styling */
+.slot-machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.slot-row {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin: 5px 0;
+}
+
+.slot-row span {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: white;
+    color: black;
+    margin: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transition: transform 1s ease-in-out;
+}
+
+
+/* Spin Animation */
+@keyframes spin {
+    0% { transform: translateY(-20px); opacity: 0; }
+    50% { transform: translateY(10px); opacity: 1; }
+    100% { transform: translateY(0px); }
+}
+
+.spin-animation {
+    display: inline-block;
+    animation: spin 1s ease-in-out;
+}
+
+
+
+/* Message */
+#message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
