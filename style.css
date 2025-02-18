@@ -1,105 +1,167 @@
-
-/* General Styling */
+/* Mobile-first: default is column for everything */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #222;
-    color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #222;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    width: 100%;
-    margin: 1em auto;
-    padding: 0.3em;
-    background: #333;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  width: 100%;
+  margin: 2em auto;
+  padding: 0.3em;
+  background: #333;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-.balance-container .bet-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.balance-container,
+.bet-container {
+  display: flex;
+  flex-direction: column;  /* column on mobile */
+  justify-content: center;
+  align-items: center;
+  gap: 1em; /* space between elements */
 }
 
+.bet-group {
+  display: flex;
+  flex-direction: row; /* always in row */
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em; /* space between label and input */
+}
 
 /* Inputs and Buttons */
 input {
-    width: 8em;
-    padding: 1em;
-    margin: 1em;
-    border-radius: 5px;
-    border: none;
+  width: 80%;
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 5px;
+  border: none;
 }
 
 button {
-    padding: 1em;
-    margin: 1em;
-    background-color: #ffcc00;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 1em;
+  margin: 1em;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #ff9900;
+  background-color: #ff9900;
 }
 
 button:disabled {
-    background-color: grey;
-    cursor: not-allowed;
+  background-color: grey;
+  cursor: not-allowed;
 }
 
-/* Slot Machine Styling */
+/* Slot Machine Styling (not affected by our layout changes) */
 .slot-machine {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .slot-row {
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
-    margin: 5px 0;
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  margin: 5px 0;
 }
 
 .slot-row span {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    background: white;
-    color: black;
-    margin: 5px;
-    border-radius: 10px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    transition: transform 1s ease-in-out;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background: white;
+  color: black;
+  margin: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: transform 1s ease-in-out;
 }
-
 
 /* Spin Animation */
 @keyframes spin {
-    0% { transform: translateY(-20px); opacity: 0; }
-    50% { transform: translateY(10px); opacity: 1; }
-    100% { transform: translateY(0px); }
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { transform: translateY(10px); opacity: 1; }
+  100% { transform: translateY(0px); }
 }
 
 .spin-animation {
-    display: inline-block;
-    animation: spin 1s ease-in-out;
+  display: inline-block;
+  animation: spin 1s ease-in-out;
 }
-
-
 
 /* Message */
 #message {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* For screens wider than 768px (Tablet and up) */
+@media (min-width: 769px) {
+
+  .balance-container {
+    flex-direction: row;
+    gap: 1em;
+  }
+  
+  /* For the bet container, change to row */
+  .bet-container {
+    flex-direction: row;
+    gap: 1em;
+  }
+  
+  input {
+    width: 40%;
+    font-size: 16px;
+  }
+  
+  button {
+    width: auto;
+    font-size: 16px;
+  }
+
+}
+
+/* tablet */
+@media (min-width: 1025px) {
+  .container {
+    width: 70%;
+    margin: 2em auto;
+  }
+  
+  input {
+    width: 30%;
     font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
+  }
+  
+  button {
+    width: auto;
+    font-size: 18px;
+  }
+  
+  .slot-row span {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+  }
+  
+  #message {
+    font-size: 22px;
+  }
 }
